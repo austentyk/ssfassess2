@@ -25,7 +25,7 @@ public class EventmanagementApplication implements Runnable{
 	public void run() {
 		
 		try {
-		final List<Event> eventList = DatabaseService.readFile("/Users/ttq/Desktop/NUS/ssf/ssfassess/vttp2023-batch4-ssf-assessment/events.json");
+		final List<Event> eventList = DatabaseService.readFile("events.json");
 
 
 		} catch (Exception e) {}

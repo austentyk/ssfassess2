@@ -49,15 +49,6 @@ public class RedisConfig {
         return jedisFac;
     }
 
-    @Bean
-    public RedisTemplate<String, Object> redisObjectTemplate() {
-        RedisTemplate<String, Object> redisTemplate = new RedisTemplate<>();
-        redisTemplate.setConnectionFactory(jedisConnFactory());
-        redisTemplate.setKeySerializer(new StringRedisSerializer());
-        redisTemplate.setValueSerializer(new StringRedisSerializer());
-
-        return redisTemplate;
-    }
 
     @Bean("eventTemp")
     public RedisTemplate<String, Event> EventTemplate() {

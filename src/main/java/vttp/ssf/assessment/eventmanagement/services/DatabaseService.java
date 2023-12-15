@@ -1,21 +1,14 @@
 package vttp.ssf.assessment.eventmanagement.services;
 
-import java.io.BufferedReader;
-import java.io.ByteArrayInputStream;
+
 import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.io.InputStream;
-import java.time.Instant;
-import java.time.LocalDate;
-import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.List;
 
 
 
-import com.google.gson.JsonArray;
-import com.google.gson.JsonObject;
-import com.google.gson.stream.JsonReader;
+
 
 import vttp.ssf.assessment.eventmanagement.models.Event;
 
@@ -35,10 +28,9 @@ public class DatabaseService {
     public static List<Event> readFile(String fileName) throws FileNotFoundException{
 
         FileReader fr = new FileReader(fileName);
-        BufferedReader br = new BufferedReader(fr);
         JSONParser parser = new JSONParser();
 
-        try { JSONArray array = (JSONArray) parser.parse(new FileReader(fileName));
+        try { JSONArray array = (JSONArray) parser.parse(fr);
             for (Object o : array ) {
                 JSONObject event = (JSONObject) o;
                 Integer jid = (Integer) event.get("eventId");
@@ -55,6 +47,8 @@ public class DatabaseService {
 
 
         } catch (Exception e) {
+
+            System.out.println("File not found");
 
         }
         
