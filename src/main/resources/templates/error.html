@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error</title>
+</head>
+<body>
+    <h1>Error</h1>
+    <p>You didn't manage to register for the following reason:</p>
+    <div th:if="${fields.hasErrors('name')}" th:errors="*{name}" class="nameerror">Name Error</div>
+    <div th:if="${fields.hasErrors('DOB')}" th:errors="*{DOB}" class="DOBerrir">Date of Birth date incorrect</div>
+    <div th:if="${fields.hasErrors('email')}" th:errors="*{email}" class="emailerror">Email incorrectly entered</div>
+    <div th:if="${fields.hasErrors('phoneNo')}" th:errors="*{phoneNo}" class="phoneError">Phone number keyed in incorrectly</div>
+    <div th:if="${fields.hasErrors('gender')}" th:errors="*{gender}" class="nameerror">You did not select a Gender</div>
+    
+
+    <a th:href="@{/event/listing}">Click here to go back</a>
+</body>
+</html>
